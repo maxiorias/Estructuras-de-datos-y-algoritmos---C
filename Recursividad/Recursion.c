@@ -81,7 +81,7 @@ int main() {
                 
             case 2:
                 {
-                    char arreglo[100]; // Mover la declaración de la variable aquí
+                    char arreglo[100]; 
                     printf("-----CONTADOR DE CONSONANTES-----\n");
                     printf("Ingresar cadena de caracteres:\n");
                     scanf("%s", arreglo);
