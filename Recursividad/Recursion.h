@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <ctype.h>
 
+
 //1-Función recursiva sumar
 int suma(int n);
 
@@ -17,3 +18,6 @@ long int calcularPotencia(int base, int exponente);
 
 //5-Función calcular MCD
 int maximoDivisor(int numMayor, int numMenor);
+
+// Genera el menu
+void menuMaker(char menu[][40], int opciones);

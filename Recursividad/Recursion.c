@@ -52,11 +52,41 @@ int maximoDivisor(int numMayor, int numMenor) {
         return maximoDivisor(numMenor, numMayor % numMenor);
 }
 
+void menuMaker(char menu[][40], int opciones)
+{
+    int i, j;
+    printf("\n");
+    for (i = 0; i < 30; i++)
+        printf("%c", 177);
+    
+    printf("  M E N U  ");
+     
+     for (i = 0; i < 31; i++)
+        printf("%c", 177);
+    
+    printf("\n%-70c %c\n", 177, 177);
+    
+    for (i = 0; i < opciones; i++)
+        printf("%-21c %d. %-45s %c\n", 177, i + 1, menu[i], 177);
+        
+    printf("%-70c %c\n", 177, 177);
+    
+    for (i = 0; i < 72; i++)
+        printf("%c", 177);
+    printf("\n\n");
+
+}
+
+
+
 int main() {
     int op;
+    char menu[6][40] = {"Suma recursiva", "Contar consonantes posteriores a 'm'", "Palindromo", "Calcular la potencia de un numero",
+     "Calcular el maximo comun divisor", "Salir del menu"};
 
     do {
-        printf("-----MENU----\n");
+        menuMaker(menu, 6);
+        /*printf("-----MENU----\n");
         printf("Elige la opción que deseas realizar:\n");
         printf("\n");
         printf("1_Suma recursiva.\n");
@@ -65,15 +95,17 @@ int main() {
         printf("4_Calcular la potencia de un número.\n");
         printf("5_Calcular el máximo común divisor.\n");
         printf("0_Salir del menú\n");
+        */
+        printf("Ingrese una opcion: ");
         scanf("%d", &op);
         
         switch(op) {
             case 1:
                 printf("-----SUMA RECURSIVA-----\n");
                 int n;
-                printf("Ingresar número: ");
+                printf("Ingresar numero: ");
                 scanf("%d", &n);
-                printf("La suma de los primeros %d números naturales es: ", n);
+                printf("La suma de los primeros %d numeros naturales es: ", n);
                 int resultadoS = suma(n);
                 printf(" = %d\n", resultadoS);
                 printf("\n");
@@ -81,7 +113,7 @@ int main() {
                 
             case 2:
                 {
-                    char arreglo[100]; 
+                    char arreglo[100]; // Mover la declaración de la variable aquí
                     printf("-----CONTADOR DE CONSONANTES-----\n");
                     printf("Ingresar cadena de caracteres:\n");
                     scanf("%s", arreglo);
@@ -96,23 +128,23 @@ int main() {
             case 3:
                 {
                     char arregloP[100];
-                    printf("-----PALÍNDROMO-----\n");
+                    printf("-----PALINDROMO-----\n");
                     printf("Ingresar cadena de caracteres:\n");
                     scanf("%s", arregloP);
                    
                     int longitudP = strlen(arregloP);
 
                     if (funcion_palindromo(arregloP, 0, longitudP - 1)) {
-                        printf("La cadena es un palíndromo.\n");
+                        printf("La cadena es un palindromo.\n");
                     } else {
-                        printf("La cadena no es un palíndromo.\n");
+                        printf("La cadena no es un palindromo.\n");
                     }
                     printf("\n");
                 }
                 break;
             
             case 4:
-                printf("-----CALCULAR POTENCIA DE UN NÚMERO-----\n");
+                printf("-----CALCULAR POTENCIA DE UN NUMERO-----\n");
                 int exponente, base;
                 long int resultado;
 
@@ -131,9 +163,9 @@ int main() {
                 
                 int num1, num2;
 
-                printf("Ingrese primer número: ");
+                printf("Ingrese primer numero: ");
                 scanf("%d", &num1);
-                printf("Ingrese segundo número: ");
+                printf("Ingrese segundo numero: ");
                 scanf("%d", &num2);
                 
                 // Controla si uno de los enteros ingresados es 0
@@ -155,14 +187,14 @@ int main() {
                 printf("\n");
                 break;
             
-            case 0:
-                printf("Saliendo del menú...\n");
+            case 6:
+                printf("Saliendo del menu...\n");
                 printf("\n");
                 break;
         }
-    } while (op != 0);
+    } while (op != 6);
     
-    printf("¡Hasta luego!");
+    printf("Hasta luego!");
 
     return 0;
 }
